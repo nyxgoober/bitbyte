@@ -1,0 +1,34 @@
+$nomention
+$botTyping
+
+$if[$getVar[isInDenylist;$authorID]==yes]
+$eval[$getVar[forbiddenUI]]
+$stop
+$endif
+
+$addContainer[info]
+
+$addTextDisplay[# <:bitbyte:1511284583021412423> BitByte Bot;info]
+$addSeparator[true;;info]
+
+$addTextDisplay[**<:connection:1511346055432900638> Latency:** $pingms;info]
+$addTextDisplay[**<:bot:1511343727887515699> Uptime:** $uptime;info]
+$addTextDisplay[**<:code:1511343906933969006> Language:** BDScript 2;info]
+$addTextDisplay[**<:globe:1511344066464448692> Status:** $getVar[status];info]
+
+$addSeparator[true;;info]
+
+$addTextDisplay[**<:cloud:1511344338527850668> Node:** $botNode;info]
+$addTextDisplay[**<:info:1511344963634466847> Bot ID:** $botID;info]
+$addTextDisplay[**<:time:1511345102658732103> Hosting Expiry:** <t:$hostingExpireTime[yes]:R>;info]
+
+$addSeparator[true;;info]
+
+$addTextDisplay[**<:calendar:1511345256929693927> Created:** $creationDate[$botID;January 2, 2006 at 3:04 PM (MST -07:00)];info]
+$addSeparator[true;;info]
+
+$addTextDisplay[**<:planet:1511345586123706409> Shard ID:** $shardID;info]
+
+$addSeparator[true;;info]
+
+$addTextDisplay[**<:wrench:1511345740100796506> Version:** $getVar[version];info]

@@ -1,0 +1,65 @@
+$nomention
+$botTyping
+$if[$getVar[isInDenylist;$authorID]==yes]
+$eval[$getVar[forbiddenUI]]
+$stop
+$endif
+$addContainer[ui]
+
+$if[$message==]
+
+$addMediaGallery[userGallery;ui]
+$addMediaGalleryItem[$userAvatar[$authorID];Avatar of $username[$authorID];false;userGallery]
+
+$addTextDisplay[## <:person:1511342669761351791> User Info;ui]
+
+$addTextDisplay[**User:** <@$authorID>;ui]
+$addTextDisplay[**Username:** $username[$authorID];ui]
+$addTextDisplay[**User ID:** $authorID;ui]
+$addTextDisplay[**Discriminator:** $discriminator[$authorID];ui]
+
+$addSeparator[true;;ui]
+
+$addTextDisplay[**Status:** $getUserStatus[$authorID];ui]
+$addTextDisplay[**Custom Status:** $getCustomStatus[$authorID];ui]
+
+$addSeparator[true;;ui]
+
+$addTextDisplay[**Highest Role:** $highestRole[$authorID];ui]
+$addTextDisplay[**Lowest Role:** $lowestRole[$authorID];ui]
+
+$addSeparator[true;;ui]
+
+$addTextDisplay[**Created:** $creationDate[$authorID];ui]
+
+$else
+
+$addMediaGallery[userGallery;ui]
+$addMediaGalleryItem[$userAvatar[$mentioned[1]];Avatar of $username[$mentioned[1]];false;userGallery]
+
+$addTextDisplay[## <:person:1511342669761351791> User Info;ui]
+
+$addTextDisplay[**User:** <@$mentioned[1]>;ui]
+$addTextDisplay[**Username:** $username[$mentioned[1]];ui]
+$addTextDisplay[**User ID:** $mentioned[1];ui]
+$addTextDisplay[**Discriminator:** $discriminator[$mentioned[1]];ui]
+
+$addSeparator[true;;ui]
+
+$addTextDisplay[**Status:** $getUserStatus[$mentioned[1]];ui]
+$addTextDisplay[**Custom Status:** $getCustomStatus[$mentioned[1]];ui]
+
+$addSeparator[true;;ui]
+
+$addTextDisplay[**Highest Role:** $highestRole[$mentioned[1]];ui]
+$addTextDisplay[**Lowest Role:** $lowestRole[$mentioned[1]];ui]
+
+$addSeparator[true;;ui]
+
+$addTextDisplay[**Created:** $creationDate[$mentioned[1]];ui]
+
+$endif
+
+$addSeparator[true;;ui]
+
+$addTextDisplay[-# Requested by <@$authorID>;ui]

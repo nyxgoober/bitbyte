@@ -1,0 +1,8 @@
+$nomention
+$botTyping
+$if[$getVar[isAdmin;$authorID]!=yes]
+$eval[$getVar[unauthorisedUI]]
+$stop
+$endif
+
+$eval[$message]

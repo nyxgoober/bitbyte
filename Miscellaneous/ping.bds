@@ -1,0 +1,10 @@
+$nomention
+$botTyping
+$if[$getVar[isInDenylist;$authorID]==yes]
+$eval[$getVar[forbiddenUI]]
+$stop
+$endif
+
+$addContainer[ping]
+$addTextDisplay[## Pong! <:connection:1511346055432900638>;ping]
+$addTextDisplay[Latency: $pingms;ping]

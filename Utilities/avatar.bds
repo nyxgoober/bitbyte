@@ -1,0 +1,24 @@
+$nomention
+$botTyling
+$if[$getVar[isInDenylist;$authorID]==yes]
+$eval[$getVar[forbiddenUI]]
+$stop
+$endif
+
+$addContainer[av]
+
+$addTextDisplay[## <:smile:1511346539463708812> Avatar;av]
+
+$addMediaGallery[avGallery;av]
+
+$if[$message==]
+$addMediaGalleryItem[$userAvatar[$authorID];Avatar of $username[$authorID];false;avGallery]
+$addTextDisplay[**User:** <@$authorID>;av]
+$else
+$addMediaGalleryItem[$userAvatar[$mentioned[1]];Avatar of $username[$mentioned[1]];false;avGallery]
+$addTextDisplay[**User:** <@$mentioned[1]>;av]
+$endif
+
+$addSeparator[true;;av]
+
+$addTextDisplay[-# Requested by <@$authorID>;av]

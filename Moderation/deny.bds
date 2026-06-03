@@ -1,0 +1,42 @@
+$nomention
+$botTyping
+$if[$getVar[isAdmin;$authorID]!=yes]
+$eval[$getVar[unauthorisedUI]]
+$stop
+$endif
+
+$if[$mentioned[1]==]
+$addContainer[noUsr]
+$addTextDisplay[## <:xmark:1511346908701134848> No Victim;noUsr]
+$addTextDisplay[Please specify a user to add to the denylist!;noUsr]
+$stop
+$endif
+
+$textSplit[$message; ]
+
+$if[$getVar[isInDenylist;$mentioned[1]]==yes]
+
+$setVar[isInDenylist;no;$mentioned[1]]
+$setVar[denylistReason;;$mentioned[1]]
+
+$addContainer[doneNoR]
+$addTextDisplay[## <:check:1511347308929744938> Removed from Denylist;doneNoR]
+$addTextDisplay[<@$mentioned[1]> has been successfully removed from the denylist.;doneNoR]
+
+$else
+
+$setVar[isInDenylist;yes;$mentioned[1]]
+
+$if[$splitText[3]!=]
+$setVar[denylistReason;$trimSpace[$replaceText[$message;$splitText[1] $splitText[2];;1]];$mentioned[1]]
+$endif
+
+$addContainer[doneR]
+$addTextDisplay[## <:check:1511347308929744938> Added to Denylist;doneR]
+$addTextDisplay[<@$mentioned[1]> has been successfully added to the denylist.;doneR]
+
+$if[$splitText[3]!=]
+$addTextDisplay[Reason: $trimSpace[$replaceText[$message;$splitText[1] $splitText[2];;1]];doneR]
+$endif
+
+$endif

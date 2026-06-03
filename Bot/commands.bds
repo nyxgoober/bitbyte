@@ -1,0 +1,30 @@
+$nomention
+$botTyping
+$if[$getVar[isInDenylist;$authorID]==yes]
+$eval[$getVar[forbiddenUI]]
+$stop
+$endif
+
+$if[$isUserDMEnabled[$authorID]==false]
+$addContainer[err]
+$addTextDisplay[## <:xmark:1511346908701134848> DMs Off;err]
+$addTextDisplay[Please turn on your DMs!;err]
+$stop
+$endif
+
+$dm
+$addContainer[cmds]
+$addTextDisplay[# <:bitbyte:1511284583021412423> BitByte Commands;cmds]
+$addTextDisplay[```- bit?ping              Get bot latency```;cmds]
+$addTextDisplay[```- bit?avatar            Get a user's avatar```;cmds]
+$addTextDisplay[```- bit?userinfo          Get a user's info```;cmds]
+$addTextDisplay[```- bit?mute              Make someone shut up```;cmds]
+$addTextDisplay[```- bit?unmute            Allow someone to talk again```;cmds]
+$addTextDisplay[```- bit?ban               Send someone to the banland```;cmds]
+$addTextDisplay[```- bit?unban             Take someone out of the banland```;cmds]
+$addTextDisplay[```- bit?calc              Calculate a math expression```;cmds]
+$addTextDisplay[```- bit?run               Run BDScript source code```;cmds]
+$addTextDisplay[```- bit?deny              Add/remove a user from the denylist```;cmds]
+$addTextDisplay[```- bit?info              Know more about the bot```;cmds]
+$addTextDisplay[```- bit?help              Show this menu```;cmds]
+

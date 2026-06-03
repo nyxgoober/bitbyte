@@ -1,0 +1,26 @@
+$nomention
+$botTyping
+$if[$getVar[isAdmin;$authorID]!=yes]
+$eval[$getVar[unauthorisedUI]]
+$stop
+$endif
+
+$if[$mentioned[1]==]
+$addContainer[noUsr]
+$addTextDisplay[## <:xmark:1511346908701134848> No Victim;noUsr]
+$addTextDisplay[Please specify a user to ban!;noUsr]
+$stop
+$endif
+
+$textSplit[$message; ]
+
+
+$addContainer[done]
+$addTextDisplay[## <:check:1511347308929744938> Banned;done]
+$addTextDisplay[<@$mentioned[1]> has successfully been banned.;done]
+$if[$splitText[3]!=]
+$ban[$trimSpace[$replaceText[$message;$splitText[1] $splitText[2];;1]];$mentioned[1]]
+$addTextDisplay[Reason: $trimSpace[$replaceText[$message;$splitText[1] $splitText[2];;1]];done]
+$else
+$ban
+$endif

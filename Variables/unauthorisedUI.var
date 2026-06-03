@@ -1,0 +1,3 @@
+$addContainer[forbidden;#FFA500]
+$addTextDisplay[## <:forbidden:1511347179355111655> Access Unauthorised;forbidden]
+$addTextDisplay[You don't have the necessary permissions to execute this command.;forbidden]

@@ -1,0 +1,26 @@
+$nomention
+$botTyping
+$if[$getVar[isInDenylist;$authorID]==yes]
+$eval[$getVar[forbiddenUI]]
+$stop
+$endif
+$if[$message==]
+$addContainer[err]
+$addTextDisplay[## <:xmark:1511346908701134848> **Error**;err]
+$addTextDisplay[Provide an expression to calculate. (e.g. `4x2`, `10/2`);err]
+$stop
+$endif
+$var[clean;$replaceText[$replaceText[$replaceText[$message;x;*];X;*];×;*]]
+$var[result;$calculate[$var[clean]]]
+$if[$var[result]==]
+$addContainer[err]
+$addTextDisplay[Invalid expression. use numbers and operators only. (e.g. `4x2`, `10/2`);err]
+$stop
+$endif
+$addContainer[calc]
+$addTextDisplay[## <:think:1511350138449170596> Calculator;calc]
+$addTextDisplay[**Input**;calc]
+$addTextDisplay[$message;calc]
+$addSeparator[true;;calc]
+$addTextDisplay[**Result**;calc]
+$addTextDisplay[$var[result];calc]

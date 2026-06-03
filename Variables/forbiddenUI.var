@@ -1,0 +1,5 @@
+$addContainer[forbidden]
+$addTextDisplay[## <:forbidden:1511347179355111655> Access Forbidden;forbidden]
+$addTextDisplay[You aren't allowed to use BitByte.;forbidden]
+$addTextDisplay[Denylist Reason: $getVar[denylistReason;$authorID];forbidden]
+$addTextDisplay[-# Think this is a mistake? Contact a BitByte administrator.;forbidden]

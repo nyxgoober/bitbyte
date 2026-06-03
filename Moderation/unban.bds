@@ -1,0 +1,18 @@
+$nomention
+$botTyping
+$if[$getVar[isAdmin;$authorID]!=yes]
+$eval[$getVar[unauthorisedUI]]
+$stop
+$endif
+
+$if[$message==]
+$addContainer[noUsr]
+$addTextDisplay[## <:xmark:1511346908701134848> No Victim;noUsr]
+$addTextDisplay[Please specify a username to unban!;noUsr]
+$stop
+$endif
+
+$addContainer[done]
+$addTextDisplay[## <:check:1511347308929744938> Unbanned;done]
+$addTextDisplay[$message[1] has successfully been unbanned.;done]
+$unban
